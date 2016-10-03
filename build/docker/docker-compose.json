@@ -45,8 +45,7 @@
       "./configs/sonarr:/config",
       "./temp/tv:/downloads/tv",
       "./media/tv:/tv",
-      "./temp/tv/:/temp/tv",
-      "/dev/rtc:/dev/rtc:ro"
+      "./temp/tv/:/temp/tv"
     ],
     "ports": [
       "8989:8989"
@@ -153,7 +152,14 @@
       "./temp/plex/sync:/config/Library/Application Support/Plex Media Server/Cache/Transcode/Sync+"
     ],
     "ports": [
-      "32400:32400"
+      "32400:32400",
+      "32469:32469",
+      "5353:5353",
+      "19000:19000",
+      "32400:32400/udp",
+      "32469:32469/udp",
+      "5353:5353/udp",
+      "1900:1900/udp"
     ],
     "environment": [
       "VERSION=plexpass",
@@ -161,8 +167,7 @@
       "PUID=0",
       "TZ=America/New_York"
     ],
-    "restart": "always",
-    "net": "host"
+    "restart": "always"
   },
   "plexpy": {
     "image": "linuxserver/plexpy",
